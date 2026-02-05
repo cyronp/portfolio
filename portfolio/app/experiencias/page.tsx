@@ -23,7 +23,8 @@ const experiences: Experience[] = [
       "Implementei APIs RESTful utilizando Node.js para integração entre aplicações e padronização da comunicação entre sistemas.",
       "Realizei manutenção e deploy de aplicações em servidores locais, utilizando Docker, Nginx e Ubuntu.",
       "Otimizei a geração de relatórios operacionais através da criação de consultas SQL complexas em PostgreSQL, apoiando a tomada de decisão das equipes internas.",
-      "Stack: React, JavaScript, PHP, Python, Git, TailwindCSS, PostgreSQL, Node.js, Next.js. Local Deploy: Docker, Ubuntu, Nginx",
+      "Stack: React, JavaScript, PHP, Python, Git, TailwindCSS, PostgreSQL, Node.js, Next.js.",
+      "Local Deploy: Docker, Ubuntu, Nginx",
     ],
   },
   {
@@ -50,6 +51,8 @@ const experiences: Experience[] = [
       "Interface mobile-first priorizando usabilidade e SEO.",
       "Configuração de hospedagem, domínio e publicação da aplicação.",
       "Melhorias de estrutura que contribuíram para o aumento de CTR da empresa.",
+      "Tech Stack: HTML, CSS, Javascript.",
+      "Deploy: VPS, Custom Domain.",
     ],
   },
 ];
