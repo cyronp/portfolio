@@ -16,10 +16,10 @@ export default function Home() {
 
           {/* Title & Subtitle */}
           <div className="space-y-3 max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-black/50 text-primary text-xs font-medium mb-2">
+            <div className="inline-flex items-center px-2 py-1 rounded-full border border-black/50 text-primary text-xs font-medium">
               Desenvolvedor FullStack
             </div>
-            <div className="space-y-2">
+            <div className="space-y-1">
               <p className="text-xl md:text-2xl ">
                 Olá! Me chamo
               </p>
