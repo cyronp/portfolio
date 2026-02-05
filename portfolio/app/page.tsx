@@ -23,7 +23,7 @@ export default function Home() {
               <p className="text-xl md:text-2xl ">
                 Olá! Me chamo
               </p>
-              <h1 className="text-4xl md:text-6xl font-bold tracking-tight bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text">
+              <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
                 Vitor Henrique
               </h1>
             </div>
@@ -48,7 +48,7 @@ export default function Home() {
               ].map((tech) => (
                 <span
                   key={tech}
-                  className="px-3 py-1 rounded-md bg-secondary text-secondary-foreground text-xs font-medium"
+                  className="px-3 py-1 rounded-md bg-black/10 text-secondary-foreground text-xs font-medium"
                 >
                   {tech}
                 </span>
