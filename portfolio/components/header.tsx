@@ -19,7 +19,7 @@ export default function NavigationHeader() {
             href="/"
             className={`flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all text-black overflow-hidden ${
               isActive("/")
-                ? "border border-gray-300 bg-gray-50"
+                ? "border border-neutral-700 bg-gray-50"
                 : "border border-transparent hover:bg-gray-50"
             }`}
           >
@@ -43,7 +43,7 @@ export default function NavigationHeader() {
             href="/experiencias"
             className={`flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all text-black overflow-hidden ${
               isActive("/experiencias")
-                ? "border border-gray-300 bg-gray-50"
+                ? "border border-neutral-700 bg-gray-50"
                 : "border border-transparent hover:bg-gray-50"
             }`}
             title="Experiências"
@@ -68,7 +68,7 @@ export default function NavigationHeader() {
             href="/blog"
             className={`flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all text-black overflow-hidden ${
               isActive("/blog")
-                ? "border border-gray-300 bg-gray-50"
+                ? "border border-neutral-700 bg-gray-50"
                 : "border border-transparent hover:bg-gray-50"
             }`}
             title="Blog"
