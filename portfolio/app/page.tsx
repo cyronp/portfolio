@@ -3,8 +3,8 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background">
-      <main className="container mx-auto px-6 py-20 max-w-6xl">
+    <div className="bg-background">
+      <main className="container mx-auto px-6 py-16 max-w-6xl">
         {/* Hero Section */}
         <div className="flex flex-col items-center text-center space-y-8">
           {/* Profile Image */}
@@ -19,9 +19,14 @@ export default function Home() {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-black/50 text-primary text-xs font-medium mb-2">
               Desenvolvedor FullStack
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text">
-              Vitor Henrique
-            </h1>
+            <div className="space-y-2">
+              <p className="text-xl md:text-2xl ">
+                Olá! Me chamo
+              </p>
+              <h1 className="text-4xl md:text-6xl font-bold tracking-tight bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text">
+                Vitor Henrique
+              </h1>
+            </div>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Desenvolvedor FullStack com 1 ano de experiência sólida e em
               constante evolução profissional. Possuo experiência no

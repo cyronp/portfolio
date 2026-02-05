@@ -58,8 +58,8 @@ export default function ExperienciasPage() {
   const [selectedExp, setSelectedExp] = useState<Experience>(experiences[0]);
 
   return (
-    <div className="min-h-screen bg-background">
-      <main className="container mx-auto px-6 py-20 max-w-7xl">
+    <div className="bg-background">
+      <main className="container mx-auto px-6 py-16 max-w-7xl">
         <h1 className="text-3xl md:text-4xl font-bold mb-12">
           Minha experiência:
         </h1>
@@ -71,7 +71,7 @@ export default function ExperienciasPage() {
               <button
                 key={exp.id}
                 onClick={() => setSelectedExp(exp)}
-                className={`w-full text-left px-4 py-3 transition-all text-sm ${
+                className={`w-full text-left px-4 py-3 transition-all cursor-pointer text-sm ${
                   selectedExp.id === exp.id
                     ? "bg-primary/10 text-primary border-l-3 border-primary font-medium"
                     : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
@@ -96,8 +96,8 @@ export default function ExperienciasPage() {
 
             <div className="space-y-4">
               {selectedExp.responsibilities.map((resp, index) => (
-                <div key={index} className="flex gap-3 items-start">
-                  <ChevronRight className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                <div key={index} className="flex gap-2 items-start">
+                  <span>▸</span>
                   <p className="text-foreground leading-relaxed">{resp}</p>
                 </div>
               ))}
