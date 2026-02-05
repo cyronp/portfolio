@@ -1,0 +1,95 @@
+"use client";
+
+import { Home, FileUser, Notebook } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
+
+export default function NavigationHeader() {
+  const pathname = usePathname();
+
+  const isActive = (path: string) => pathname === path;
+
+  return (
+    <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+      <div className="max-w-6xl mx-auto flex h-16 items-center justify-center px-4">
+        {/* Navigation */}
+        <nav className="flex items-center gap-1">
+          <Link
+            href="/"
+            className={`flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all text-black overflow-hidden ${
+              isActive("/")
+                ? "border border-gray-300 bg-gray-50"
+                : "border border-transparent hover:bg-gray-50"
+            }`}
+          >
+            <Home className="h-4 w-4 text-black" />
+            <AnimatePresence mode="wait">
+              {isActive("/") && (
+                <motion.span
+                  initial={{ width: 0, opacity: 0 }}
+                  animate={{ width: "auto", opacity: 1 }}
+                  exit={{ width: 0, opacity: 0 }}
+                  transition={{ duration: 0.2, ease: "easeInOut" }}
+                  className="whitespace-nowrap"
+                >
+                  Início
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </Link>
+
+          <Link
+            href="/experiencias"
+            className={`flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all text-black overflow-hidden ${
+              isActive("/experiencias")
+                ? "border border-gray-300 bg-gray-50"
+                : "border border-transparent hover:bg-gray-50"
+            }`}
+            title="Experiências"
+          >
+            <FileUser className="h-4 w-4 text-black" />
+            <AnimatePresence mode="wait">
+              {isActive("/experiencias") && (
+                <motion.span
+                  initial={{ width: 0, opacity: 0 }}
+                  animate={{ width: "auto", opacity: 1 }}
+                  exit={{ width: 0, opacity: 0 }}
+                  transition={{ duration: 0.2, ease: "easeInOut" }}
+                  className="whitespace-nowrap"
+                >
+                  Experiências
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </Link>
+
+          <Link
+            href="/blog"
+            className={`flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all text-black overflow-hidden ${
+              isActive("/blog")
+                ? "border border-gray-300 bg-gray-50"
+                : "border border-transparent hover:bg-gray-50"
+            }`}
+            title="Blog"
+          >
+            <Notebook className="h-4 w-4 text-black" />
+            <AnimatePresence mode="wait">
+              {isActive("/blog") && (
+                <motion.span
+                  initial={{ width: 0, opacity: 0 }}
+                  animate={{ width: "auto", opacity: 1 }}
+                  exit={{ width: 0, opacity: 0 }}
+                  transition={{ duration: 0.2, ease: "easeInOut" }}
+                  className="whitespace-nowrap"
+                >
+                  Blog
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </Link>
+        </nav>
+      </div>
+    </header>
+  );
+}
