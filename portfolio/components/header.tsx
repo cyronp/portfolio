@@ -1,6 +1,6 @@
 "use client";
 
-import { Home, FileUser, Notebook } from "lucide-react";
+import { Home, FileUser, Notebook, FolderCode } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
@@ -59,6 +59,31 @@ export default function NavigationHeader() {
                   className="whitespace-nowrap"
                 >
                   Experiências
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </Link>
+
+          <Link
+            href="/projects"
+            className={`flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all text-black overflow-hidden ${
+              isActive("/projects")
+                ? "border border-neutral-700 bg-gray-50"
+                : "border border-transparent hover:bg-gray-50"
+            }`}
+            title="Projetos"
+          >
+            <FolderCode className="h-4 w-4 text-black" />
+            <AnimatePresence mode="wait">
+              {isActive("/projects") && (
+                <motion.span
+                  initial={{ width: 0, opacity: 0 }}
+                  animate={{ width: "auto", opacity: 1 }}
+                  exit={{ width: 0, opacity: 0 }}
+                  transition={{ duration: 0.2, ease: "easeInOut" }}
+                  className="whitespace-nowrap"
+                >
+                  Projetos
                 </motion.span>
               )}
             </AnimatePresence>
