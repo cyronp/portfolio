@@ -3,6 +3,12 @@ import { Ubuntu } from "next/font/google";
 import "./globals.css";
 
 import NavigationHeader from "@/components/header";
+import {
+  SidebarProvider,
+  SidebarInset,
+  SidebarTrigger,
+} from "@/components/ui/sidebar";
+import { MobileSidebarWrapper } from "@/components/mobile-nav";
 
 const ubuntu = Ubuntu({
   weight: ["300", "400", "500", "700"],
@@ -23,8 +29,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${ubuntu.variable} font-ubuntu antialiased`}>
-        <NavigationHeader />
-        {children}
+        <SidebarProvider>
+          <MobileSidebarWrapper />
+          <SidebarInset>
+            <header className="sticky top-0 z-50 bg-background">
+              <div className="flex items-center gap-2">
+                <SidebarTrigger className="md:hidden !h-12 !w-12 !p-3 [&_svg]:!h-6 [&_svg]:!w-6" />
+                <NavigationHeader />
+              </div>
+            </header>
+            {children}
+          </SidebarInset>
+        </SidebarProvider>
       </body>
     </html>
   );

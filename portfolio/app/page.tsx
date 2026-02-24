@@ -2,7 +2,6 @@
 
 import { Github, Linkedin, FileUser } from "lucide-react";
 import confetti from "canvas-confetti";
-import Link from "next/link";
 
 export default function Home() {
   return (
@@ -26,12 +25,12 @@ export default function Home() {
               </h1>
             </div>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Desenvolvedor FullStack com 1 ano de experiência sólida e em
-              constante evolução profissional. Possuo experiência no
-              desenvolvimento profissional de aplicações utilizando TypeScript,
-              React, Node.js, Next.js e Python, além de conhecimentos em UI/UX.
-              Ao longo da minha trajetória, fui responsável pelo desenvolvimento
-              de aplicações que reduziram significativamente processos manuais,
+              Sou Desenvolvedor FullStack, com 2 anos
+              de experiência sólida e em constante evolução profissional. Possuo
+              experiência no desenvolvimento profissional de aplicações de
+              gestão utilizando TypeScript, React, Node.js, Next.js e Python. Ao
+              longo da minha trajetória, fui responsável pelo desenvolvimento de
+              aplicações que reduziram significativamente processos manuais,
               otimizando fluxos que antes demandavam horas de execução, sempre
               com foco em facilidade de uso e performance.
             </p>

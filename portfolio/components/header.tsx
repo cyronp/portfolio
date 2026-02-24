@@ -48,7 +48,7 @@ export default function NavigationHeader() {
                   </AnimatePresence>
                 </Link>
               </TooltipTrigger>
-              <TooltipContent side="bottom" className="bg-transparent text-foreground border border-border shadow-lg rounded-lg">
+              <TooltipContent side="bottom" className=" border border-border shadow-lg rounded-lg">
                 <p>Início</p>
               </TooltipContent>
             </Tooltip>
@@ -79,7 +79,7 @@ export default function NavigationHeader() {
                   </AnimatePresence>
                 </Link>
               </TooltipTrigger>
-              <TooltipContent side="bottom" className="bg-transparent text-foreground border border-border shadow-lg rounded-lg">
+              <TooltipContent side="bottom" className=" border border-border shadow-lg rounded-lg">
                 <p>Experiências</p>
               </TooltipContent>
             </Tooltip>
@@ -87,7 +87,7 @@ export default function NavigationHeader() {
             <Tooltip>
               <TooltipTrigger asChild>
                 <Link
-                  href="/projects"
+                  href="/projetos"
                   className={`flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all text-black overflow-hidden ${
                     isActive("/projects")
                       ? "border border-neutral-700 bg-gray-50"
@@ -96,7 +96,7 @@ export default function NavigationHeader() {
                 >
                   <FolderCode className="h-4 w-4 text-black" />
                   <AnimatePresence mode="wait">
-                    {isActive("/projects") && (
+                    {isActive("/projetos") && (
                       <motion.span
                         initial={{ width: 0, opacity: 0 }}
                         animate={{ width: "auto", opacity: 1 }}
@@ -110,7 +110,7 @@ export default function NavigationHeader() {
                   </AnimatePresence>
                 </Link>
               </TooltipTrigger>
-              <TooltipContent side="bottom" className="bg-transparent text-foreground border border-border shadow-lg rounded-lg">
+              <TooltipContent side="bottom" className=" border border-border shadow-lg rounded-lg">
                 <p>Projetos</p>
               </TooltipContent>
             </Tooltip>
@@ -141,7 +141,7 @@ export default function NavigationHeader() {
                   </AnimatePresence>
                 </Link>
               </TooltipTrigger>
-              <TooltipContent side="bottom" className="bg-transparent text-foreground border border-border shadow-lg rounded-lg">
+              <TooltipContent side="bottom" className=" border border-border shadow-lg rounded-lg">
                 <p>Blog</p>
               </TooltipContent>
             </Tooltip>
