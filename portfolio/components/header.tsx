@@ -11,7 +11,7 @@ export default function NavigationHeader() {
   const isActive = (path: string) => pathname === path;
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+    <header className="hidden md:flex md:sticky md:top-0 md:z-50 md:w-full md:bg-white">
       <div className="max-w-6xl mx-auto flex h-16 items-center justify-center px-4">
         {/* Navigation */}
         <nav className="flex items-center gap-1">

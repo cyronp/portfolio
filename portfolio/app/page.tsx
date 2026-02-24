@@ -1,4 +1,7 @@
-import { Github, Linkedin } from "lucide-react";
+"use client";
+
+import { Github, Linkedin, FileUser } from "lucide-react";
+import confetti from "canvas-confetti";
 import Link from "next/link";
 
 export default function Home() {
@@ -16,13 +19,8 @@ export default function Home() {
 
           {/* Title & Subtitle */}
           <div className="space-y-3 max-w-3xl">
-            <div className="inline-flex items-center px-2 py-1 rounded-full border border-black/50 text-primary text-xs font-medium">
-              Desenvolvedor FullStack
-            </div>
             <div className="space-y-1">
-              <p className="text-xl md:text-2xl ">
-                Olá! Me chamo
-              </p>
+              <p className="text-xl md:text-2xl ">Olá! Me chamo</p>
               <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
                 Vitor Henrique
               </h1>
@@ -75,6 +73,25 @@ export default function Home() {
             >
               <Github className="h-4 w-4" />
               GitHub
+            </a>
+            <a
+              href="/Curriculo_Vitor_Henrique_Desenvolvedor_Frontend.pdf"
+              download="Curriculo_Vitor_Henrique_Desenvolvedor_Frontend.pdf"
+              onClick={(e) => {
+                const rect = e.currentTarget.getBoundingClientRect();
+                const x = rect.left + rect.width / 2;
+                const y = rect.top + rect.height / 2;
+                confetti({
+                  origin: {
+                    x: x / window.innerWidth,
+                    y: y / window.innerHeight,
+                  },
+                });
+              }}
+              className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
+            >
+              <FileUser className="h-4 w-4" />
+              Currículo
             </a>
           </div>
         </div>
