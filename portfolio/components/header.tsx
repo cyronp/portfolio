@@ -48,7 +48,10 @@ export default function NavigationHeader() {
                   </AnimatePresence>
                 </Link>
               </TooltipTrigger>
-              <TooltipContent side="bottom" className=" border border-border shadow-lg rounded-lg">
+              <TooltipContent
+                side="bottom"
+                className=" border border-border shadow-lg rounded-lg"
+              >
                 <p>Início</p>
               </TooltipContent>
             </Tooltip>
@@ -79,7 +82,10 @@ export default function NavigationHeader() {
                   </AnimatePresence>
                 </Link>
               </TooltipTrigger>
-              <TooltipContent side="bottom" className=" border border-border shadow-lg rounded-lg">
+              <TooltipContent
+                side="bottom"
+                className=" border border-border shadow-lg rounded-lg"
+              >
                 <p>Experiências</p>
               </TooltipContent>
             </Tooltip>
@@ -89,7 +95,7 @@ export default function NavigationHeader() {
                 <Link
                   href="/projetos"
                   className={`flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all text-black overflow-hidden ${
-                    isActive("/projects")
+                    isActive("/projetos")
                       ? "border border-neutral-700 bg-gray-50"
                       : "border border-transparent hover:bg-gray-50"
                   }`}
@@ -110,7 +116,10 @@ export default function NavigationHeader() {
                   </AnimatePresence>
                 </Link>
               </TooltipTrigger>
-              <TooltipContent side="bottom" className=" border border-border shadow-lg rounded-lg">
+              <TooltipContent
+                side="bottom"
+                className=" border border-border shadow-lg rounded-lg"
+              >
                 <p>Projetos</p>
               </TooltipContent>
             </Tooltip>
@@ -141,7 +150,10 @@ export default function NavigationHeader() {
                   </AnimatePresence>
                 </Link>
               </TooltipTrigger>
-              <TooltipContent side="bottom" className=" border border-border shadow-lg rounded-lg">
+              <TooltipContent
+                side="bottom"
+                className=" border border-border shadow-lg rounded-lg"
+              >
                 <p>Blog</p>
               </TooltipContent>
             </Tooltip>
