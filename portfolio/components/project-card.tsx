@@ -5,7 +5,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Github } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -99,14 +99,14 @@ export function ProjectCard({
         {repoUrl ? (
           <Link href={repoUrl} target="_blank" rel="noopener noreferrer">
             <ConfettiButton className="w-full rounded-lg font-semibold text-sm gap-1.5 mt-2 transition-all duration-200 cursor-pointer">
-              Mais Informações
-              <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
+              Acessar repositório
+              <Github className="h-4 w-4" />
             </ConfettiButton>
           </Link>
         ) : (
           <ConfettiButton className="w-full rounded-lg font-semibold text-sm gap-1.5 mt-2 transition-all duration-200 cursor-pointer">
-            Mais Informações
-            <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
+            Acessar repositório
+            <Github className="h-4 w-4" />
           </ConfettiButton>
         )}
       </div>
