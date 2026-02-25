@@ -80,7 +80,7 @@ export default function Projetos() {
       <ProjectCard
         title="TasteNSpeak"
         image="/tastenspeak.png"
-        description="Plataforma de avaliação e descoberta de restaurantes e cafés locais, focado para casais."
+        description="Plataforma de avaliação e descoberta de restaurantes e cafés locais, com foco para casais."
         features={[
           "Cadastro de Restaurantes/Cafés",
           "Avaliações e opiniões",
