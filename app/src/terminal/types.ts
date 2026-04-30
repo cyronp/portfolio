@@ -1,9 +1,9 @@
 import { rices } from "@/app/components/terminal-prompt/terminal-props";
 
-
 export interface CommandResult {
   output: string | string[];
   isError?: boolean;
+  clearHistory?: boolean;
 }
 
 export interface CommandContext {

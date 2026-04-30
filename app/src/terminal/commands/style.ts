@@ -18,6 +18,14 @@ export const styleCommand: Command = {
       ctx.setStyle(value as rices);
       return { output: `Style changed to: ${value}` };
     }
+    if (sub === "--help") {
+      return { output: [
+        "Options:",
+            "     style list                List styling options." ,
+            "     style change <value>      Change to wanted style."
+          ]
+        };
+    }
 
     return { output: `Unknown subcommand: "${sub}"`, isError: true };
   },

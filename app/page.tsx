@@ -14,7 +14,9 @@ export default function Home() {
   const [language, setLanguage] = useState("pt");
   const [style, setStyle] = useState<rices>("default");
 
-  useEffect(() => { inputRef.current?.focus(); }, []);
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = () => inputRef.current?.focus();
@@ -34,7 +36,15 @@ export default function Home() {
         setStyle,
       });
 
-      setTerminalHistory((prev) => [...prev, { input: terminalInput, ...result }]);
+      if (result.clearHistory) {
+        setTerminalHistory([]);
+      } else {
+        setTerminalHistory((prev) => [
+          ...prev,
+          { input: terminalInput, ...result },
+        ]);
+      }
+
       setTerminalInput("");
     }
   };
