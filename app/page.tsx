@@ -10,12 +10,14 @@ export default function Home() {
   const inputRef = useRef<HTMLInputElement>(null);
   const [terminalInput, setTerminalInput] = useState("");
   const [terminalHistory, setTerminalHistory] = useState<historyProps[]>([]);
-
   const [language, setLanguage] = useState("pt");
   const [style, setStyle] = useState<rices>("default");
+  const [placeholderHelp, setPlaceholderHelp] = useState("");
+  const debounceTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     inputRef.current?.focus();
+    startIdleDebounce();
   }, []);
 
   useEffect(() => {
@@ -24,7 +26,34 @@ export default function Home() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
+  useEffect(() => {
+    return () => {
+      if (debounceTimeoutRef.current) {
+        clearTimeout(debounceTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  const resetIdleState = () => {
+    setPlaceholderHelp("");
+    if (debounceTimeoutRef.current) {
+      clearTimeout(debounceTimeoutRef.current);
+    }
+  };
+
+  const startIdleDebounce = () => {
+    if (debounceTimeoutRef.current) {
+      clearTimeout(debounceTimeoutRef.current);
+    }
+    debounceTimeoutRef.current = setTimeout(() => {
+      setPlaceholderHelp("Write 'help' for guidance");
+    }, 4000);
+  };
+
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    resetIdleState();
+    startIdleDebounce();
+
     if (event.key === "Enter") {
       event.preventDefault();
       if (!terminalInput.trim()) return;
@@ -46,7 +75,19 @@ export default function Home() {
       }
 
       setTerminalInput("");
+      resetIdleState();
+      startIdleDebounce();
     }
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTerminalInput(e.target.value);
+    resetIdleState();
+    startIdleDebounce();
+  };
+
+  const handleBlur = () => {
+    setTimeout(() => inputRef.current?.focus(), 0);
   };
 
   return (
@@ -54,11 +95,12 @@ export default function Home() {
       <History historyContext={terminalHistory} />
       <Terminal
         ref={inputRef}
+        placeholder={placeholderHelp}
         spanRice={style}
         value={terminalInput}
         onKeyDown={handleKeyDown}
-        onBlur={() => setTimeout(() => inputRef.current?.focus(), 0)}
-        onChange={(e) => setTerminalInput(e.target.value)}
+        onBlur={handleBlur}
+        onChange={handleInputChange}
       />
     </div>
   );

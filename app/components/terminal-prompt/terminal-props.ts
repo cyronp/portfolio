@@ -6,4 +6,5 @@ export interface terminalProps {
   onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
+  placeholder?: string;
 }
