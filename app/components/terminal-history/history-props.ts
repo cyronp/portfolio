@@ -1,3 +1,5 @@
 export interface historyProps {
-  historyContext?: string[];
+  input: string;
+  output: string | string[];
+  isError?: boolean;
 }

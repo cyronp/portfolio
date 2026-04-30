@@ -1,17 +1,20 @@
 "use client";
-
 import { useEffect, useRef, useState } from "react";
 import { Terminal } from "./components/terminal-prompt/terminal";
 import { History } from "./components/terminal-history/history";
+import { executeCommand } from "./src/terminal/executor";
+import { historyProps } from "./components/terminal-history/history-props";
+import { rices } from "./components/terminal-prompt/terminal-props";
 
 export default function Home() {
   const inputRef = useRef<HTMLInputElement>(null);
   const [terminalInput, setTerminalInput] = useState("");
-  const [terminalHistory, setTerminalHistory] = useState<string[]>([]);
+  const [terminalHistory, setTerminalHistory] = useState<historyProps[]>([]);
 
-  useEffect(() => {
-    inputRef.current?.focus();
-  }, []);
+  const [language, setLanguage] = useState("pt");
+  const [style, setStyle] = useState<rices>("default");
+
+  useEffect(() => { inputRef.current?.focus(); }, []);
 
   useEffect(() => {
     const handleKeyDown = () => inputRef.current?.focus();
@@ -19,32 +22,33 @@ export default function Home() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
-  function handleTerminalClick() {
-    inputRef.current?.focus();
-  }
-
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
       event.preventDefault();
+      if (!terminalInput.trim()) return;
 
-      if (!terminalInput.trim()) {
-        return;
-      }
+      const result = executeCommand(terminalInput, {
+        language,
+        setLanguage,
+        style,
+        setStyle,
+      });
 
-      setTerminalHistory((prevHistory) => [...prevHistory, terminalInput]);
+      setTerminalHistory((prev) => [...prev, { input: terminalInput, ...result }]);
       setTerminalInput("");
     }
   };
 
   return (
-    <div className="p-2 min-h-screen" onClick={handleTerminalClick}>
+    <div className="p-2 min-h-screen" onClick={() => inputRef.current?.focus()}>
       <History historyContext={terminalHistory} />
       <Terminal
         ref={inputRef}
+        spanRice={style}
         value={terminalInput}
         onKeyDown={handleKeyDown}
         onBlur={() => setTimeout(() => inputRef.current?.focus(), 0)}
-        onChange={(event) => setTerminalInput(event.target.value)}
+        onChange={(e) => setTerminalInput(e.target.value)}
       />
     </div>
   );
